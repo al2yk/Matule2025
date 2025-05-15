@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Matule2025"
 include(":app")
- 
+include(":uiKit")
