@@ -1,0 +1,57 @@
+package com.example.uikit.Button
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+import com.example.uikit.UI.Accent
+import com.example.uikit.UI.Black
+import com.example.uikit.UI.Input_Backgroud
+import com.example.uikit.UI.White
+import com.example.uikit.UI.localTypography
+
+@Composable
+fun MediumButton(Title: String, click: Boolean, enabled: Boolean, onClick: () -> Unit) {
+
+    var colorBox = White
+    var BorderColor = Accent
+    var textColor = Accent
+
+    if (!click) {
+        colorBox = Accent
+        BorderColor = Color.Transparent
+        textColor = White
+
+    }
+    if (!enabled) {
+        colorBox = Input_Backgroud
+        BorderColor = Color.Transparent
+        textColor = Black
+
+    }
+
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(48.dp)
+            .border(1.dp, BorderColor, RoundedCornerShape(8.dp))
+            .clip(RoundedCornerShape(20))
+            .background(colorBox)
+            .clickable {
+                onClick()
+            },
+        contentAlignment = Alignment.Center
+    ) {
+        Text(Title, style = localTypography.current.Title3_Semi, color = textColor)
+    }
+}
