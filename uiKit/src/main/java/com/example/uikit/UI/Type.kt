@@ -67,9 +67,6 @@ val Typography = Typo(
         fontFamily = FontFamily(Font(R.font.heavy)),
         color = Black
     ),
-
-
-
     //REGULAR
     Title2_Regular = TextStyle(
         fontSize = 20.sp,

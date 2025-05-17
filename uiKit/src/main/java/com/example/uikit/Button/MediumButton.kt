@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.uikit.UI.Accent
 import com.example.uikit.UI.Black
+import com.example.uikit.UI.Error
 import com.example.uikit.UI.Input_Backgroud
 import com.example.uikit.UI.White
 import com.example.uikit.UI.localTypography
@@ -53,5 +54,25 @@ fun MediumButton(Title: String, click: Boolean, enabled: Boolean, onClick: () ->
         contentAlignment = Alignment.Center
     ) {
         Text(Title, style = localTypography.current.Title3_Semi, color = textColor)
+    }
+}
+
+@Composable
+fun MediumButtonRed(Title: String, onClick: () -> Unit) {
+
+
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(48.dp)
+            .border(1.dp, Error, RoundedCornerShape(8.dp))
+            .clip(RoundedCornerShape(20))
+            .background(White)
+            .clickable {
+                onClick()
+            },
+        contentAlignment = Alignment.Center
+    ) {
+        Text(Title, style = localTypography.current.Title3_Semi, color = Error)
     }
 }

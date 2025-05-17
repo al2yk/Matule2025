@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import com.example.uikit.Components.SpacerHeight
 import com.example.uikit.R
 import com.example.uikit.UI.Card_Strok
+import com.example.uikit.UI.Input_Strok
 import com.example.uikit.UI.PlaceHolder
 import com.example.uikit.UI.White
 import com.example.uikit.UI.localTypography
@@ -28,7 +29,24 @@ import com.example.uikit.UI.localTypography
 @Composable
 fun MedicalCard(Img: String, name: String, surname: String, email: String, onClick: () -> Unit) {
 
+    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.CenterStart){
+        CardBackground(72, Input_Strok)
+        Image(
+            painter = painterResource(R.drawable.male),
+            contentDescription = "",
+            modifier = Modifier
+                .size(48.dp)
+                .padding(start = 16.dp)
+        )
 
+        Column(modifier = Modifier.padding(start = 64.dp)) {
+            Text("${name} ${surname}", style = localTypography.current.Headline_Med)
+            SpacerHeight(4)
+            Text(email, style = localTypography.current.Caption_Reg, color = PlaceHolder)
+        }
+    }
+
+/*
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -55,6 +73,6 @@ fun MedicalCard(Img: String, name: String, surname: String, email: String, onCli
             Text(email, style = localTypography.current.Caption_Reg, color = PlaceHolder)
         }
 
-    }
+    }*/
 }
 

@@ -35,9 +35,9 @@ fun CheckBox(check: Boolean, onCheck: (Boolean) -> Unit) {
     Box(
         modifier = Modifier
             .size(20.dp)
-            .clip(RoundedCornerShape(8.dp))
+            .clip(RoundedCornerShape(4.dp))
             .background(colorBox)
-            .border(1.dp, colorBorder, RoundedCornerShape(8.dp))
+            .border(1.dp, colorBorder, RoundedCornerShape(4.dp))
             .clickable {
                 onCheck(!check)
             },

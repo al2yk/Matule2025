@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.uikit.Card.CardBackground
 import com.example.uikit.Components.SpacerHeight
+import com.example.uikit.UI.Input_Strok
 import com.example.uikit.UI.PlaceHolder
 import com.example.uikit.UI.localTypography
 
@@ -18,7 +19,7 @@ import com.example.uikit.UI.localTypography
 fun Primary(Title: String, Sub: String, cost: String, click: Boolean, enabled: Boolean, onClick: (Boolean) -> Unit) {
 
     Box(modifier = Modifier.fillMaxWidth()) {
-        CardBackground(136)
+        CardBackground(136, Input_Strok)
         Column(modifier = Modifier.padding(16.dp)) {
             Text(Title, style = localTypography.current.Headline_Med)
             SpacerHeight(16)
