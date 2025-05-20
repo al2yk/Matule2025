@@ -1,0 +1,11 @@
+package com.example.networklib.data.models
+
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class AuthRequest(
+    var identity:String,
+    var password:String
+)
+
+

@@ -20,7 +20,7 @@ import com.example.uikit.UI.White
 import com.example.uikit.UI.localTypography
 
 @Composable
-fun BigButton(Title: String, click: Boolean, enabled: Boolean, onClick: (Boolean) -> Unit) {
+fun BigButton(Title: String, click: Boolean, enabled: Boolean, onClick: () -> Unit) {
 
     var colorBox = White
     var BorderColor = Accent
@@ -47,7 +47,7 @@ fun BigButton(Title: String, click: Boolean, enabled: Boolean, onClick: (Boolean
             .clip(RoundedCornerShape(20))
             .background(colorBox)
             .clickable {
-
+                onClick()
             },
         contentAlignment = Alignment.Center
     ) {

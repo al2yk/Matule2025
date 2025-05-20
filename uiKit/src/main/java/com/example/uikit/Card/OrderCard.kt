@@ -47,12 +47,23 @@ import com.example.uikit.UI.PlaceHolder
 import com.example.uikit.UI.Success
 import com.example.uikit.UI.White
 import com.example.uikit.UI.localTypography
-
 @Composable
-fun OrderCard(num: Int, Cost: String, date: String, status: String) {
-
+fun OrderCard(
+    num: Int,
+    date: String,
+    status: String,
+    items: List<List<String>>,
+    check:()->Unit,
+    help:()->Unit,
+    otmena:()->Unit
+) {
     var isCheck by remember { mutableStateOf(false) }
 
+    val totalCost = remember(items) {
+        items.sumOf { item->
+            item[0].toInt() * item[2].toInt()
+        }.toString()
+    }
 
 
     Card(
@@ -64,21 +75,19 @@ fun OrderCard(num: Int, Cost: String, date: String, status: String) {
             disabledContentColor = White
         )
     ) {
-        /* CardBackground(116, Input_Strok)*/
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
             Text(
-                "${Cost} ₽",
+                "${totalCost} ₽",
                 style = localTypography.current.Headline_Reg,
                 modifier = Modifier.align(Alignment.TopEnd)
             )
             Column {
-
                 Text(
-                    "Заказ №${num} ₽",
+                    "Заказ №${num}",
                     style = localTypography.current.Title3_Semi,
                     modifier = Modifier.padding(top = 2.dp)
                 )
@@ -97,27 +106,19 @@ fun OrderCard(num: Int, Cost: String, date: String, status: String) {
                         painter = painterResource(R.drawable.file_text),
                         contentDescription = "",
                         tint = PlaceHolder,
-                        modifier = Modifier
-                            .size(20.dp)
+                        modifier = Modifier.size(20.dp)
                     )
                     SpacerWi(8)
                     Text(
                         "Посмотреть",
                         style = localTypography.current.Headline_Reg,
-                        color = PlaceHolder, modifier = Modifier.clickable {
-                            isCheck = !isCheck
-                        }
+                        color = PlaceHolder,
+                        modifier = Modifier.clickable { isCheck = !isCheck }
                     )
                 }
 
-                AnimatedVisibility(
-                    visible = isCheck,
-                ) {
-
-                    Column(
-                        modifier = Modifier.padding(top = 16.dp)
-                    ) {
-
+                AnimatedVisibility(visible = isCheck) {
+                    Column(modifier = Modifier.padding(top = 16.dp)) {
                         Divider(modifier = Modifier.width(335.dp), color = Card_Strok)
                         SpacerHeight(16)
                         Text(
@@ -127,19 +128,28 @@ fun OrderCard(num: Int, Cost: String, date: String, status: String) {
                         )
 
                         SpacerHeight(12)
-                        OrderCardComponent(2,"Рубашка воскресенье дял машинного вязания","300")
-                        OrderCardComponent(1,"Шорты вторник для машинного вязания","980")
+                        items.forEach { item ->
+                            // Предполагаем, что item[0] - количество, item[1] - название, item[2] - цена
+                            OrderCardComponent(
+                                quantity = item[0].toInt(),
+                                name = item[1],
+                                price = item[2]
+                            )
+                        }
+
                         SpacerHeight(14)
                         Divider(modifier = Modifier.fillMaxWidth(), color = Card_Strok)
                         SpacerHeight(22)
                         Box(modifier = Modifier.fillMaxWidth()){
-                            ChipsTwo(144,"Чек покупки",false) { }
+                            ChipsTwo(144,"Чек покупки",false) { check()}
                             Box(modifier = Modifier.align(Alignment.CenterEnd)){
-                                ChipsTwo(143,"Помощь",false) { }
+                                ChipsTwo(143,"Помощь",false) { help()}
                             }
                         }
                         SpacerHeight(16)
-                        MediumButtonRed("Отменить заказ"){}
+                        MediumButtonRed("Отменить заказ"){
+                            otmena()
+                        }
                         SpacerHeight(124)
                     }
                 }
@@ -147,179 +157,27 @@ fun OrderCard(num: Int, Cost: String, date: String, status: String) {
         }
     }
 }
-
-
 @Composable
-fun OrderCardComponent(count:Int,Title:String,Cost:String){
+fun OrderCardComponent(
+    quantity: Int,
+    name: String,
+    price: String
+) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .height(40.dp)
     ) {
         Text(
-            Title,
+            "$name",
             style = localTypography.current.Caption2_Reg,
             modifier = Modifier.padding(end = 70.dp)
-
         )
-       Text(
-            "${count}   x ${Cost} ₽",
+        Text(
+            "$quantity x $price ₽",
             style = localTypography.current.Text_Reg,
             modifier = Modifier.align(Alignment.TopEnd)
         )
     }
     SpacerHeight(8)
 }
-
-@Composable
-fun OrderListScreen() {
-    Column(
-        modifier = Modifier.padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp)
-    ) {
-        OrderItem(
-            orderNumber = "123456",
-            date = "26 апреля, 14:00",
-            status = "Оплачен",
-            totalPrice = "2580 ₽",
-            items = listOf(
-                OrderItemInfo("Рубашка Воскресенье для машинного вязания", "300 ₽", 1),
-                OrderItemInfo("Шорты Вторник для машинного вязания", "690 ₽", 1)
-            )
-        )
-
-        OrderItem(
-            orderNumber = "123456",
-            date = "26 апреля, 14:00",
-            status = "Оплачен",
-            totalPrice = "2500 ₽",
-            items = listOf(
-                OrderItemInfo("Рубашка Воскресенье для машинного вязания", "300 ₽", 1),
-                OrderItemInfo("Шорты Вторник для машинного вязания", "690 ₽", 1)
-            )
-        )
-    }
-}
-
-@Composable
-fun OrderItem(
-    orderNumber: String,
-    date: String,
-    status: String,
-    totalPrice: String,
-    items: List<OrderItemInfo>
-) {
-    var isExpanded by remember { mutableStateOf(false) }
-
-    Card(
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        Column(
-            modifier = Modifier.padding(16.dp)
-        ) {
-            // Заголовок заказа
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Column {
-                    Text(
-                        text = "Заказ № $orderNumber",
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 16.sp
-                    )
-                    Text(
-                        text = "$date • $status",
-                        color = Color.Gray,
-                        fontSize = 14.sp
-                    )
-                }
-
-                Text(
-                    text = totalPrice,
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 16.sp
-                )
-            }
-
-            // Кнопка "Посмотреть"
-            Text(
-                text = "Посмотреть",
-                color = Color.Blue,
-                modifier = Modifier
-                    .padding(top = 8.dp)
-                    .clickable { isExpanded = !isExpanded }
-            )
-
-            // Раскрывающаяся секция с деталями
-            AnimatedVisibility(
-                visible = isExpanded,
-                enter = expandVertically(),
-                exit = shrinkVertically()
-            ) {
-                Column(
-                    modifier = Modifier.padding(top = 16.dp)
-                ) {
-                    Divider(modifier = Modifier.padding(bottom = 8.dp))
-
-                    Text(
-                        text = "Описания",
-                        fontWeight = FontWeight.Bold,
-                        modifier = Modifier.padding(bottom = 8.dp)
-                    )
-
-                    items.forEach { item ->
-                        OrderItemRow(item)
-                    }
-
-                    Spacer(modifier = Modifier.size(16.dp))
-
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-                        Text(text = "Чек покупки", color = Color.Blue)
-                        Text(text = "Помощь", color = Color.Blue)
-                    }
-
-                    Button(
-                        onClick = { /* Отменить заказ */ },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(top = 16.dp)
-                    ) {
-                        Text(text = "Отменить заказ")
-                    }
-                }
-            }
-        }
-    }
-}
-
-@Composable
-fun OrderItemRow(item: OrderItemInfo) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 4.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween
-    ) {
-        Text(
-            text = item.name,
-            modifier = Modifier.weight(1f),
-            maxLines = 2
-        )
-        Text(
-            text = "${item.quantity} x ${item.price}",
-            modifier = Modifier.padding(start = 8.dp)
-        )
-    }
-}
-
-data class OrderItemInfo(
-    val name: String,
-    val price: String,
-    val quantity: Int
-)

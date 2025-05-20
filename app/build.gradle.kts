@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    kotlin("plugin.serialization") version "2.1.0"
+
 }
 
 android {
@@ -59,5 +61,27 @@ dependencies {
 
     //импорт библиотеки
     implementation(project (":uiKit"))
+    implementation(project(":networkLib"))
+
+    //Навигация
+    implementation("androidx.navigation:navigation-compose:2.8.6")
+
+    // Kotlin
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+
+
+    // koin
+    implementation("io.insert-koin:koin-android:3.4.3")
+    implementation("io.insert-koin:koin-androidx-compose:3.4.3")
+    implementation("io.insert-koin:koin-android:3.5.0")
+
+    //ktor
+    implementation("io.ktor:ktor-client-core:2.3.7") // Ядро Ktor
+    implementation("io.ktor:ktor-client-logging:2.3.7") // логинг
+    implementation("io.ktor:ktor-client-android:2.3.7") // Android-специфичный движок
+    implementation("io.ktor:ktor-client-content-negotiation:2.3.7") // Для JSON
+    implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.7") // Сериализация
+
 
 }

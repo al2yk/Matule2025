@@ -1,8 +1,6 @@
 package com.example.uikit.UI
 
-import android.util.EventLogTags.Description
 import androidx.compose.ui.graphics.Color
-
 
 
 val Accent = Color(0xFF1A6FEE)

@@ -3,6 +3,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -14,7 +15,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import com.example.uikit.R
 import com.example.uikit.UI.Accent
 import com.example.uikit.UI.Black
 import com.example.uikit.UI.Input_Backgroud
@@ -24,11 +29,13 @@ import com.example.uikit.UI.localTypography
 
 @Composable
 fun NameInputField_WithoutChangeBorder(
-    value: String,
+    value: String, placeholde: String, isPassword: Boolean=false,
     onValChange: (String) -> Unit
 ) {
     var isWriting by remember { mutableStateOf(false) }
+    var isVis by remember { mutableStateOf(false) }
     var colorBorder by remember { mutableStateOf(Input_Strok) }
+
 
     TextField(
         value = value,
@@ -36,9 +43,21 @@ fun NameInputField_WithoutChangeBorder(
         singleLine = true,
         placeholder = {
             Text(
-                "Введите имя", style = localTypography.current.Text_Reg, color = PlaceHolder
+                placeholde, style = localTypography.current.Text_Reg, color = PlaceHolder
             )
         },
+        trailingIcon = {
+            if (isPassword) {
+                val ic = if (isVis) R.drawable.closeeye else R.drawable.eye
+                Icon(
+                    painter = painterResource(ic),
+                    contentDescription = "",
+                    modifier = Modifier.clickable {
+                        isVis=!isVis
+                    })
+            }
+        },
+        visualTransformation = if (isVis) VisualTransformation.None else PasswordVisualTransformation(),
         shape = RoundedCornerShape(10.dp),
         colors = TextFieldDefaults.colors(
             disabledIndicatorColor = Color.Transparent,

@@ -64,5 +64,7 @@ dependencies {
 
     implementation("io.coil-kt:coil-compose:2.2.2")
     implementation("io.coil-kt:coil-svg:2.2.2")
+
+    implementation("androidx.compose.material3:material3:1.4.0-alpha14")
 }
 
