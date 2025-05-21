@@ -5,4 +5,5 @@ object NavigationRoutes {
     const val SIGNINUP = "signInUp"
     const val CREATEPASSWORD = "create"
     const val CREATEPROFILE = "createprofile"
+    const val MAIN = "main"
 }

@@ -9,7 +9,7 @@ import com.example.networklib.data.repository.RepositoryImpl
 import com.example.networklib.domain.repository.Repository
 import com.example.networklib.domain.usecase.UseCase
 import io.ktor.client.HttpClient
-import io.ktor.client.engine.android.Android
+import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
@@ -27,7 +27,7 @@ val networkModule  = module {
     single<NetworkMonitor> {AndroidNetworkMonitor(get())}
 
     single {
-        HttpClient(Android){
+        HttpClient(CIO){
             install(ContentNegotiation){
                 json(
                     Json {
@@ -50,7 +50,7 @@ val networkModule  = module {
         }
     }
 
-    single<ApiService> { ApiServiceImpl("http://127.0.0.1:8090",get()) }
+    single<ApiService> { ApiServiceImpl("http://10.0.2.2:8090",get()) }
 
     single<Repository> { RepositoryImpl(get(),get()) }
 

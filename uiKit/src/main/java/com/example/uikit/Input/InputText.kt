@@ -33,7 +33,7 @@ fun NameInputField_WithoutChangeBorder(
     onValChange: (String) -> Unit
 ) {
     var isWriting by remember { mutableStateOf(false) }
-    var isVis by remember { mutableStateOf(false) }
+    var isVis by remember { mutableStateOf(true) }
     var colorBorder by remember { mutableStateOf(Input_Strok) }
 
 
@@ -57,7 +57,7 @@ fun NameInputField_WithoutChangeBorder(
                     })
             }
         },
-        visualTransformation = if (isVis) VisualTransformation.None else PasswordVisualTransformation(),
+        visualTransformation = if (!isVis || !isPassword) VisualTransformation.None else PasswordVisualTransformation(),
         shape = RoundedCornerShape(10.dp),
         colors = TextFieldDefaults.colors(
             disabledIndicatorColor = Color.Transparent,

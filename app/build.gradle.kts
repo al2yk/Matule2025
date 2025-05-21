@@ -82,6 +82,7 @@ dependencies {
     implementation("io.ktor:ktor-client-android:2.3.7") // Android-специфичный движок
     implementation("io.ktor:ktor-client-content-negotiation:2.3.7") // Для JSON
     implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.7") // Сериализация
+    implementation("io.ktor:ktor-client-cio:2.3.7") //cio
 
 
 }

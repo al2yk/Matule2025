@@ -7,4 +7,5 @@ sealed class NetworkResult<out T>(){
     data class Error(val error:ApiError):NetworkResult<Nothing>()
     object Loading:NetworkResult<Nothing>()
     object NoInternet:NetworkResult<Nothing>()
+    object UserNotFound:NetworkResult<Nothing>()
 }

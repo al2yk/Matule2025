@@ -4,7 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.matule2025.Presentation.screens.CreateProfile.CreateProfile
+import com.example.matule2025.Presentation.screens.Main.MainView
+import com.example.matule2025.Presentation.screens.signInUp.CreateProfile
 import com.example.matule2025.Presentation.screens.signInUp.SignInUpView
 import com.example.matule2025.Presentation.screens.splash.SplashView
 
@@ -18,13 +19,16 @@ fun Navigation() {
             SplashView(controller)
         }
         composable(NavigationRoutes.SIGNINUP) {
-            SignInUpView()
+            SignInUpView(controller)
         }
         composable(NavigationRoutes.CREATEPASSWORD) {
 
         }
         composable(NavigationRoutes.CREATEPROFILE) {
             CreateProfile(controller)
+        }
+        composable(NavigationRoutes.MAIN) {
+            MainView(controller)
         }
     }
 

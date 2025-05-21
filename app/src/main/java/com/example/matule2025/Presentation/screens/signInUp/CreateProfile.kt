@@ -1,4 +1,4 @@
-package com.example.matule2025.Presentation.screens.CreateProfile
+package com.example.matule2025.Presentation.screens.signInUp
 
 import NameInputField_WithoutChangeBorder
 import androidx.compose.foundation.background
@@ -15,7 +15,6 @@ import androidx.navigation.NavHostController
 import com.example.uikit.Button.BigButton
 import com.example.uikit.Components.SpacerHeight
 import com.example.uikit.Select.Date
-import com.example.uikit.Select.DateSelection
 import com.example.uikit.Select.GenderDropdownMenu
 import com.example.uikit.UI.PlaceHolder
 import com.example.uikit.UI.White

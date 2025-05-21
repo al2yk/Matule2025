@@ -1,6 +1,5 @@
 package com.example.matule2025.Presentation.screens.signInUp
 
-import android.widget.Space
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -18,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.matule2025.Presentation.viewModel.AuthViewModel
 import com.example.matule2025.R
 import com.example.uikit.Button.BigButton
@@ -32,9 +32,11 @@ import com.example.uikit.UI.localTypography
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun SignInUpView(viewModel: AuthViewModel = koinViewModel()) {
+fun SignInUpView(controller: NavHostController,viewModel: AuthViewModel = koinViewModel()) {
 
     val state = viewModel.state
+
+    var isNotNull = if(state.email!="" && state.password!= "") true else false
 
     Box(
         modifier = Modifier
@@ -71,7 +73,7 @@ fun SignInUpView(viewModel: AuthViewModel = koinViewModel()) {
             TextFieldAndTitle("Вход по E-mail","example@mail.com",false,state.email) {viewModel.updateState(state.copy(email = it)) }
             TextFieldAndTitle("Пароль","",true,state.password) {viewModel.updateState(state.copy(password = it))}
 
-            BigButton("Далее",click=true, enabled = false){}
+            BigButton("Далее",click=false, enabled = isNotNull){viewModel.Auth(state.email,state.password,controller)}
             SpacerHeight(15)
             Text(
                 "Забыл пароль?",
