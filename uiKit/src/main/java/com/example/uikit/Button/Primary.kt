@@ -44,4 +44,5 @@ fun Primary(Title: String, Sub: String, cost: String, click: Boolean, enabled: B
             }
         }
     }
+    SpacerHeight(16)
 }

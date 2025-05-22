@@ -27,10 +27,11 @@ class AuthViewModel(private val UseCase: UseCase):ViewModel() {
                     when(val res = UseCase(email,password)){
                         is NetworkResult.Success ->{ controller.navigate(NavigationRoutes.MAIN) }
                         is NetworkResult.Error ->{_state.value = _state.value.copy(isLoading = false, error = res.error.message)
-                        if(res.error.message=="Нет такого пользователя"){controller.navigate(NavigationRoutes.CREATEPROFILE)}}
+                        if(res.error.message=="Нет такого пользователя"){
+                            _state.value=_state.value.copy(email=email,password=password)
+                            controller.navigate(NavigationRoutes.CREATEPASSWORD4)}}
                         is NetworkResult.NoInternet ->{_state.value = _state.value.copy(error = "No Internet")}
                         is NetworkResult.Loading ->{_state.value = _state.value.copy(isLoading = true)}
-                        is NetworkResult.UserNotFound->{controller.navigate(NavigationRoutes.CREATEPROFILE)}
                     }
                     Log.d("auth",state.error.toString())
 
@@ -44,6 +45,27 @@ class AuthViewModel(private val UseCase: UseCase):ViewModel() {
             }
 
 
+        }
+    }
+
+
+    fun Registration(controller: NavHostController){
+        viewModelScope.launch {
+            updateState(state.copy(isLoading = true, error = null))
+            try{
+                when(val response = UseCase.invoke(state.email,state.password,state.password,state.name,state.surname,state.lastname,state.dateBirthday,state.gender,state.telegram)){
+                    is NetworkResult.Success ->{controller.navigate(NavigationRoutes.MAIN)}
+                    is NetworkResult.Error->{updateState(state.copy(isLoading = false, error = response.error.message))}
+                    is NetworkResult.Loading->{updateState(state.copy(isLoading = true))}
+                    is NetworkResult.NoInternet->{updateState(state.copy(isNotInternet = true))}
+                }
+                Log.d("Reg",state.error.toString())
+
+
+
+            }catch (e:Exception){
+                    Log.e("reg ViewModel",e.message.toString())
+            }
         }
     }
 }

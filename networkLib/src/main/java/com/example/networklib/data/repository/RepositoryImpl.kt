@@ -3,7 +3,11 @@ package com.example.networklib.data.repository
 import com.example.networklib.data.models.ApiError
 import com.example.networklib.data.models.AuthRequest
 import com.example.networklib.data.models.AuthResponse
+import com.example.networklib.data.models.CategoryResponse
 import com.example.networklib.data.models.NetworkResult
+import com.example.networklib.data.models.ProductResponse
+import com.example.networklib.data.models.RegistationResponse
+import com.example.networklib.data.models.RegistrationRequest
 import com.example.networklib.data.network.NetworkMonitor
 import com.example.networklib.data.remote.ApiCall
 import com.example.networklib.data.remote.ApiService
@@ -20,11 +24,42 @@ class RepositoryImpl(
             ApiCall(networkMonitor) {
                 apiService.login(request)
             }
-        }catch (e:UserIsNotFound){
-            NetworkResult.UserNotFound
         }
         catch (e:Exception){
             NetworkResult.Error(ApiError(1,e.message.toString()))
         }
     }
+
+    override suspend fun registration(request: RegistrationRequest): NetworkResult<RegistationResponse> {
+        return try {
+            ApiCall(networkMonitor){
+                apiService.registration(request)
+            }
+        }catch (e:Exception){
+            NetworkResult.Error(ApiError(2,e.message.toString()))
+        }
+    }
+
+    override suspend fun getCategory(): NetworkResult<CategoryResponse> {
+
+        return try {
+          ApiCall(networkMonitor){
+              apiService.getcategory()
+          }
+        }catch (e:Exception){
+            NetworkResult.Error(ApiError(3,e.message.toString()))
+        }
+    }
+
+    override suspend fun getProduct(): NetworkResult<ProductResponse> {
+        return try {
+            ApiCall(networkMonitor){
+                apiService.getProduct()
+            }
+        }catch (e:Exception){
+             NetworkResult.Error(ApiError(4,e.message.toString()))
+        }
+    }
+
+
 }

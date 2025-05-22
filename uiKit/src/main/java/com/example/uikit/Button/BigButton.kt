@@ -47,7 +47,9 @@ fun BigButton(Title: String, click: Boolean, enabled: Boolean, onClick: () -> Un
             .clip(RoundedCornerShape(20))
             .background(colorBox)
             .clickable {
-                onClick()
+                if (enabled){
+                    onClick()
+                }
             },
         contentAlignment = Alignment.Center
     ) {

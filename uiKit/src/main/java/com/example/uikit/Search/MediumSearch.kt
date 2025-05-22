@@ -2,7 +2,6 @@ package com.example.uikit.Search
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
@@ -28,10 +27,8 @@ import com.example.uikit.UI.PlaceHolder
 import com.example.uikit.UI.localTypography
 
 @Composable
-fun BigSearch(onSearch:(String)->Unit){
-
+fun MediumSearch(onSearch:(String)->Unit){
     var searchText by remember { mutableStateOf("") }
-
     TextField(
         shape = RoundedCornerShape(10.dp),
         value = searchText,
@@ -39,14 +36,18 @@ fun BigSearch(onSearch:(String)->Unit){
             searchText = it
             onSearch(it)
         },
-        placeholder = { Text("Искать описание", style = localTypography.current.Headline_Reg, color = PlaceHolder) },
+        placeholder = {
+            Text(
+                "Искать описание",
+                style = localTypography.current.Headline_Reg,
+                color = PlaceHolder
+            )
+        },
         trailingIcon = {
             Icon(
                 painter = painterResource(R.drawable.close),
                 contentDescription = "",
-                tint = Description, modifier = Modifier.clickable {
-                    searchText=""
-                }
+                tint = Description, modifier = Modifier.clickable { searchText = "" }
             )
         },
         leadingIcon = {
@@ -71,9 +72,7 @@ fun BigSearch(onSearch:(String)->Unit){
         ),
         modifier = Modifier
             .border(1.dp, Input_Strok, RoundedCornerShape(10.dp))
-            .fillMaxWidth()
             .height(50.dp),
         textStyle = localTypography.current.Headline_Reg
     )
 }
-

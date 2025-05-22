@@ -24,7 +24,6 @@ fun CardBackground(sm: Int,colorBorder:Color) {
             .clip(RoundedCornerShape(12.dp))
             .border(1.dp, colorBorder, RoundedCornerShape(12.dp))
             .background(White)
-
     )
 }
 

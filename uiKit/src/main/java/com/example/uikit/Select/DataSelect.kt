@@ -43,6 +43,7 @@ fun DateSelection() {
     val formatter = SimpleDateFormat("dd MMMM yyyy", Locale("ru"))
     val selectedDate = dateState.selectedDateMillis?.let { formatter.format(Date(it)) } ?: "Сегодня, 16 апреля"
 
+
     Column(modifier = Modifier.fillMaxWidth()) {
         Text(
             "Дата", style = localTypography.current.Caption_Reg, color = Description
@@ -108,16 +109,14 @@ fun DateSelection() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Date() {
+fun Date(value:String,onchange:(String)->Unit) {
     var openDialog by remember { mutableStateOf(false) }
-    val dateState = rememberDatePickerState()
     val formatter = SimpleDateFormat("dd MMMM yyyy", Locale("ru"))
-    val selectedDate = dateState.selectedDateMillis?.let { formatter.format(Date(it)) } ?: ""
 
         TextField(
             readOnly = true,
             shape = RoundedCornerShape(10.dp),
-            value = selectedDate,
+            value = value,
             onValueChange = { },
             placeholder = { Text("Дата рождения", style = localTypography.current.Text_Reg, color = PlaceHolder) },
             trailingIcon = {
@@ -148,11 +147,18 @@ fun Date() {
         )
 
         if (openDialog) {
+
+            val datePickerState = rememberDatePickerState()
             DatePickerDialog(
                 onDismissRequest = { openDialog = false },
                 confirmButton = {
                     TextButton(onClick = {
+                        datePickerState.selectedDateMillis?.let { mills->
+                            val dateString = formatter.format(Date(mills))
+                            onchange(dateString)
+                        }
                         openDialog = false
+
                     }) {
                         Text("Подтвердить")
                     }
@@ -165,7 +171,7 @@ fun Date() {
                     }
                 }
             ) {
-                DatePicker(state = dateState)
+                DatePicker(state = datePickerState)
             }
         }
 }

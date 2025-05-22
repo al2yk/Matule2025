@@ -5,7 +5,7 @@ import com.example.uikit.Components.SpacerHeight
 import com.example.uikit.R
 
 @Composable
-fun LogIn(VKonClick:()->Unit?,YanOnClick:()->Unit?){
+fun LogIn(VKonClick:()->Unit,YanOnClick:()->Unit){
 
     LogInButton("Войти с VK", R.drawable.vk) { VKonClick() }
     SpacerHeight(16)

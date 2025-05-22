@@ -34,10 +34,10 @@ import com.example.uikit.UI.localTypography
 
 
 @Composable
-fun GenderDropdownMenu() {
+fun GenderDropdownMenu(value:String,oncheck:(String)->Unit) {
     val genderOptions = listOf("Мужской", "Женский", "Другое")
     var open by remember { mutableStateOf(false) }
-    var selectedGender by remember { mutableStateOf<String?>(null) }
+    /*var selectedGender by remember { mutableStateOf<String?>(null) }*/
 
 
     ExposedDropdownMenuBox(
@@ -49,7 +49,7 @@ fun GenderDropdownMenu() {
         TextField(
             readOnly = true,
             shape = RoundedCornerShape(10.dp),
-            value = selectedGender ?: "",
+            value = value,
             onValueChange = { },
             placeholder = { Text("Пол", style = localTypography.current.Text_Reg, color = PlaceHolder) },
             trailingIcon = {
@@ -85,11 +85,11 @@ fun GenderDropdownMenu() {
             expanded = open,
             onDismissRequest = { open = false }
         ) {
-            genderOptions.forEach { selectionOption ->
+            genderOptions.forEach { gender ->
                 DropdownMenuItem(
-                    text = { Text(selectionOption) },
+                    text = { Text(gender) },
                     onClick = {
-                        selectedGender = selectionOption
+                        oncheck(gender)
                         open = false
                     }
                 )

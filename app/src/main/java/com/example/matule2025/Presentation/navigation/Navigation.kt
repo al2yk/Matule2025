@@ -5,31 +5,51 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.matule2025.Presentation.screens.Main.MainView
+import com.example.matule2025.Presentation.screens.noInternet.NoInternet
+import com.example.matule2025.Presentation.screens.signInUp.CreatePassword
+import com.example.matule2025.Presentation.screens.signInUp.CreatePassword4
 import com.example.matule2025.Presentation.screens.signInUp.CreateProfile
 import com.example.matule2025.Presentation.screens.signInUp.SignInUpView
+import com.example.matule2025.Presentation.screens.signInUp.TgAuth
 import com.example.matule2025.Presentation.screens.splash.SplashView
+import com.example.matule2025.Presentation.viewModel.AuthViewModel
+import org.koin.androidx.compose.koinViewModel
 
 
 @Composable
-fun Navigation() {
+fun Navigation(isOnline: Boolean) {
+
 
     var controller = rememberNavController()
+
+    //Спросить будет ли это правильНО? потому что без этого не будет передаваться email и password
+    val viewModel: AuthViewModel = koinViewModel()
+    if (isOnline){
     NavHost(navController = controller, startDestination = NavigationRoutes.SPLASH) {
         composable(NavigationRoutes.SPLASH) {
             SplashView(controller)
         }
         composable(NavigationRoutes.SIGNINUP) {
-            SignInUpView(controller)
+            SignInUpView(controller,viewModel)
         }
         composable(NavigationRoutes.CREATEPASSWORD) {
-
+            CreatePassword(controller)
         }
         composable(NavigationRoutes.CREATEPROFILE) {
-            CreateProfile(controller)
+            CreateProfile(controller,viewModel)
         }
         composable(NavigationRoutes.MAIN) {
-            MainView(controller)
+            MainView(controller,)
         }
+        composable(NavigationRoutes.CREATEPASSWORD4) {
+           CreatePassword4(controller)
+        }
+        composable(NavigationRoutes.TG) {
+          TgAuth(controller)
+        }
+    }}
+    else{
+        NoInternet()
     }
 
 }

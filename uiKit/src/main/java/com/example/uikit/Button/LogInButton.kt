@@ -35,7 +35,7 @@ fun LogInButton(Title: String, Img: Int, onClick: () -> Unit) {
             .clip(RoundedCornerShape(25))
             .background(White)
             .clickable {
-
+                onClick()
             },
         contentAlignment = Alignment.Center
     ) {

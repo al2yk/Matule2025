@@ -11,19 +11,17 @@ import com.example.uikit.Button.Chips
 @Composable
 fun ChipsLazyRow(
     categories: List<String>,
-    selectedCategory: String,
+    selectedCategory:String? = categories[0],
     onCategoryClick: (String) -> Unit
 ) {
     LazyRow(
-        contentPadding = PaddingValues(horizontal = 16.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp)
+        horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         items(categories) { category ->
-            val isSelected = selectedCategory == category
             Chips(
                 sm =126 ,
                 Title = category,
-                click = isSelected,
+                click = category==  selectedCategory,
                 onClick = {
                     onCategoryClick(category)
                 }

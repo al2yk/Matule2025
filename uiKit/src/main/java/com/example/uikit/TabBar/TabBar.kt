@@ -30,62 +30,10 @@ import com.example.uikit.UI.Input_Icon
 import com.example.uikit.UI.localTypography
 
 @Composable
-fun TabBar() {
-
-    var selected by remember { mutableStateOf(0) }
-
-    Divider(modifier = Modifier.fillMaxWidth(), color = Input_Icon)
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 7.dp)
-            .padding(bottom = 31.dp)
-    ) {
-
-        a(R.drawable.home, "Главная", selected == 0) { selected = 0 }
-
-        a(R.drawable.catalog, "Каталог", selected == 1) { selected = 1 }
-        a(R.drawable.support, "Проекты", selected == 2) { selected = 2 }
-        a(R.drawable.profile, "Профиль", selected == 3) { selected = 3 }
-    }
-}
-
-
-@Composable
-fun a(Img: Int, title: String, isSelect: Boolean, onClick: () -> Unit) {
-    var iconColor = if (isSelect) Accent else Input_Icon
-
-    Column(modifier = Modifier.height(88.dp)) {
-        Box(
-            modifier = Modifier
-                .weight(0.8f)
-                .background(Color.Red)
-                .clickable { onClick() }
-        ) {
-            Icon(
-                painter = painterResource(Img),
-                contentDescription = "",
-                tint = iconColor,
-                modifier = Modifier
-                    .align(Alignment.Center)
-                    .padding(bottom = 15.dp)
-            )
-            Text(
-                title,
-                style = localTypography.current.Caption2_Reg,
-                color = Input_Icon,
-                modifier = Modifier.align(Alignment.BottomCenter)
-            )
-        }
-    }
-
-}
-
-@Composable
-fun BottomNavigationBar() {
+fun BottomNavigationBar(onClick1: () -> Unit,onClick2: () -> Unit,onClick3: () -> Unit,onClick4: () -> Unit) {
 
     var isSelected by remember { mutableStateOf(0) }
-
+    Divider(modifier = Modifier.fillMaxWidth(), color = Input_Icon)
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -99,6 +47,7 @@ fun BottomNavigationBar() {
             selected = isSelected == 0
         ) {
             isSelected = 0
+            onClick1()
         }
         BottomNavigationItem(
             icon = R.drawable.catalog,
@@ -106,6 +55,7 @@ fun BottomNavigationBar() {
             selected = isSelected == 1
         ) {
             isSelected = 1
+            onClick2()
         }
         BottomNavigationItem(
             icon = R.drawable.support,
@@ -114,6 +64,7 @@ fun BottomNavigationBar() {
             isSmallerIcon = true
         ) {
             isSelected = 2
+            onClick3()
         }
         BottomNavigationItem(
             icon = R.drawable.profile,
@@ -121,6 +72,7 @@ fun BottomNavigationBar() {
             selected = isSelected == 3
         ) {
             isSelected = 3
+            onClick4()
         }
     }
 }
@@ -141,7 +93,7 @@ fun BottomNavigationItem(
             painter = painterResource(icon),
             contentDescription = null,
             tint = if (selected) Accent else Input_Icon,
-            modifier = Modifier.size(if (isSmallerIcon) 26.dp else 32.dp)
+            modifier = Modifier.size(if (isSmallerIcon) 26.dp else 35.dp)
         )
         Text(
             text,
