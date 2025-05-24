@@ -18,6 +18,7 @@ import com.example.uikit.UI.Accent
 import com.example.uikit.UI.Black
 import com.example.uikit.UI.Error
 import com.example.uikit.UI.Input_Backgroud
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.White
 import com.example.uikit.UI.localTypography
 
@@ -53,7 +54,7 @@ fun MediumButton(Title: String, click: Boolean, enabled: Boolean, onClick: () ->
             },
         contentAlignment = Alignment.Center
     ) {
-        Text(Title, style = localTypography.current.Title3_Semi, color = textColor)
+        Text(Title, style = Typography().Title3_Semi, color = textColor)
     }
 }
 
@@ -73,6 +74,6 @@ fun MediumButtonRed(Title: String, onClick: () -> Unit) {
             },
         contentAlignment = Alignment.Center
     ) {
-        Text(Title, style = localTypography.current.Title3_Semi, color = Error)
+        Text(Title, style = Typography().Title3_Semi, color = Error)
     }
 }

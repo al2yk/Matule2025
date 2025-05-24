@@ -9,6 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.example.uikit.Components.SpacerWi
 import com.example.uikit.UI.Accent
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.localTypography
 
 @Composable
@@ -21,7 +22,7 @@ fun MediumSearch_WithClose(onSearch: (String) -> Unit) {
         SpacerWi(16)
         Text(
             "Отменить",
-            style = localTypography.current.Caption_Reg,
+            style = Typography().Caption_Reg,
             color = Accent,
             modifier = Modifier
                 .weight(0.5f)

@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.uikit.UI.Black
 import com.example.uikit.UI.Input_Icon
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.localTypography
 
 @Composable
@@ -32,7 +33,7 @@ fun CardSmall(Title: String, enadled: Boolean, Cost: String) {
         ) {
             Text(
                 Title,
-                style = localTypography.current.Caption2_Reg,
+                style = Typography().Caption2_Reg,
                 modifier = Modifier
                     .align(Alignment.CenterStart)
                     .padding(end = 100.dp),
@@ -40,7 +41,7 @@ fun CardSmall(Title: String, enadled: Boolean, Cost: String) {
             )
             Text(
                 "${Cost} ₽",
-                style = localTypography.current.Text_Reg,
+                style = Typography().Text_Reg,
                 modifier = Modifier.align(Alignment.CenterEnd),
                 color = colorB
             )

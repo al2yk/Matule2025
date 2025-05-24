@@ -25,6 +25,7 @@ import com.example.uikit.UI.Black
 import com.example.uikit.UI.Input_Backgroud
 import com.example.uikit.UI.Input_Strok
 import com.example.uikit.UI.PlaceHolder
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.localTypography
 
 @Composable
@@ -43,7 +44,7 @@ fun NameInputField_WithoutChangeBorder(
         singleLine = true,
         placeholder = {
             Text(
-                placeholde, style = localTypography.current.Text_Reg, color = PlaceHolder
+                placeholde, style = Typography().Text_Reg, color = PlaceHolder
             )
         },
         trailingIcon = {

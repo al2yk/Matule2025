@@ -19,6 +19,7 @@ import com.example.uikit.Components.SpacerHeight
 import com.example.uikit.UI.Black
 import com.example.uikit.UI.Input_Icon
 import com.example.uikit.UI.Input_Strok
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.localTypography
 
 @Composable
@@ -46,13 +47,13 @@ fun CardSmall2(Title: String, enadled: Boolean, Cost: String) {
             }
             Text(
                 Title,
-                style = localTypography.current.Caption2_Reg,
+                style = Typography().Caption2_Reg,
                 modifier = Modifier.padding(start = 36.dp, end = 100.dp),
                 color = colorB
             )
             Text(
                 "${Cost} ₽",
-                style = localTypography.current.Text_Reg,
+                style = Typography().Text_Reg,
                 modifier = Modifier.align(Alignment.CenterEnd),
                 color = colorB
             )

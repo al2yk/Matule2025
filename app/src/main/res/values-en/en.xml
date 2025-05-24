@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Matule2025</string>
+    <string name="hello">Welcome</string>
+    <string name="order">My orders</string>
+    <string name="yvedom">Notification</string>
+
+
+</resources>

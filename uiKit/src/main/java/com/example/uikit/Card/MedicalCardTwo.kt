@@ -21,6 +21,7 @@ import com.example.uikit.R
 import com.example.uikit.UI.Accent
 import com.example.uikit.UI.Black
 import com.example.uikit.UI.Input_Backgroud
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.White
 import com.example.uikit.UI.localTypography
 
@@ -58,7 +59,7 @@ fun MedicalCardTwo(
         )
         Text(
             "${name} ${surname}",
-            style = localTypography.current.Headline_Med,
+            style = Typography().Headline_Med,
             modifier = Modifier.padding(start = 50.dp),
             color = textcolor
         )

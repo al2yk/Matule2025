@@ -13,22 +13,23 @@ import com.example.uikit.Card.CardBackground
 import com.example.uikit.Components.SpacerHeight
 import com.example.uikit.UI.Input_Strok
 import com.example.uikit.UI.PlaceHolder
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.localTypography
 
 @Composable
 fun Primary(Title: String, Sub: String, cost: String, click: Boolean, enabled: Boolean, onClick: (Boolean) -> Unit) {
 
     Box(modifier = Modifier.fillMaxWidth()) {
-        CardBackground(136, Input_Strok)
+        CardBackground(125, Input_Strok)
         Column(modifier = Modifier.padding(16.dp)) {
-            Text(Title, style = localTypography.current.Headline_Med)
+            Text(Title, style = Typography().Headline_Med)
             SpacerHeight(16)
             Box(modifier = Modifier.fillMaxWidth()) {
                 Column {
-                    Text(Sub, style = localTypography.current.Caption_Semi, color = PlaceHolder)
+                    Text(Sub, style = Typography().Caption_Semi, color = PlaceHolder)
                     SpacerHeight(4)
 
-                    Text(text = "$cost ₽", style = localTypography.current.Headline_Med)
+                    Text(text = "$cost ₽", style = Typography().Headline_Med)
                 }
 
 

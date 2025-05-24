@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import com.example.uikit.Components.Close
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.White
 import com.example.uikit.UI.localTypography
 
@@ -29,7 +30,7 @@ fun ModalBackground(sm: Int, Text: String) {
         ) {
             Text(
                 Text,
-                style = localTypography.current.Title2_SemiBold,
+                style = Typography().Title2_SemiBold,
                 modifier = Modifier.padding(top = 24.dp, start = 20.dp, end = 40.dp)
             )
             Box(modifier = Modifier.align(Alignment.TopEnd).padding(end = 20.dp, top = 24.dp)) {

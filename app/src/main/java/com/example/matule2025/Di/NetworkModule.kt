@@ -3,6 +3,7 @@ package com.example.matule2025.Di
 import com.example.matule2025.Presentation.viewModel.AuthViewModel
 import com.example.matule2025.Presentation.viewModel.CreatePasswordViewModel
 import com.example.matule2025.Presentation.viewModel.MainViewModel
+import com.example.matule2025.Presentation.viewModel.SplashViewModel
 import com.example.networklib.data.network.AndroidNetworkMonitor
 import com.example.networklib.data.network.NetworkMonitor
 import com.example.networklib.data.remote.ApiService
@@ -21,9 +22,7 @@ import io.ktor.http.ContentType
 import io.ktor.http.contentType
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
-import org.koin.androidx.compose.get
 import org.koin.androidx.viewmodel.dsl.viewModel
-import org.koin.core.scope.get
 import org.koin.dsl.module
 
 val networkModule  = module {
@@ -63,5 +62,6 @@ val networkModule  = module {
     viewModel { AuthViewModel(get()) }
     viewModel { CreatePasswordViewModel(get()) }
     viewModel { MainViewModel(get()) }
+    viewModel { SplashViewModel() }
 
 }

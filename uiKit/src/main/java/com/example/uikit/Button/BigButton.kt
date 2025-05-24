@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.uikit.UI.Accent
 import com.example.uikit.UI.Accent_inactive
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.White
 import com.example.uikit.UI.localTypography
 
@@ -53,7 +54,7 @@ fun BigButton(Title: String, click: Boolean, enabled: Boolean, onClick: () -> Un
             },
         contentAlignment = Alignment.Center
     ) {
-        Text(Title, style = localTypography.current.Title3_Semi, color = textColor)
+        Text(Title, style = Typography().Title3_Semi, color = textColor)
     }
 }
 

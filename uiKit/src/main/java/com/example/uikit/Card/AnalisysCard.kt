@@ -22,6 +22,7 @@ import com.example.uikit.UI.Description
 import com.example.uikit.UI.Input_Strok
 import com.example.uikit.UI.PlaceHolder
 import com.example.uikit.UI.Success
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.localTypography
 
 @Composable
@@ -51,15 +52,15 @@ fun AnalisysCard(Title: String, date: String, isBuy: Boolean) {
             Column(Modifier.fillMaxSize()) {
                 Text(
                     Title,
-                    style = localTypography.current.Headline_Med,
+                    style = Typography().Headline_Med,
                     modifier = Modifier.padding(end = 100.dp)
                 )
                 SpacerHeight(4)
-                Text(date, style = localTypography.current.Caption_Reg, color = PlaceHolder)
+                Text(date, style = Typography().Caption_Reg, color = PlaceHolder)
             }
             Text(
                 text = if (isBuy) "Куплено" else "В продаже",
-                style = localTypography.current.Headline_Med,
+                style = Typography().Headline_Med,
                 color = if (isBuy) Success else Accent,
                 modifier = Modifier.align(Alignment.BottomStart)
             )

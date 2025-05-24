@@ -11,26 +11,26 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.matule2025.Presentation.navigation.NavigationRoutes
+import com.example.matule2025.Presentation.viewModel.SplashViewModel
+import com.example.matule2025.R
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.White
 import com.example.uikit.UI.localTypography
+import org.koin.androidx.compose.koinViewModel
+import org.koin.dsl.koinApplication
 
 @Composable
-fun SplashView(controller: NavHostController) {
+fun SplashView(controller: NavHostController,viewModel: SplashViewModel = koinViewModel()) {
 
     LaunchedEffect(Unit) {
-        kotlinx.coroutines.delay(1000)
-
-
-        controller.navigate(NavigationRoutes.SIGNINUP){
-            popUpTo(NavigationRoutes.SPLASH){
-                inclusive=true
-            }
-        }
-
+        viewModel.launch(controller)
     }
+
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -48,8 +48,8 @@ fun SplashView(controller: NavHostController) {
     )
     {
         Text(
-            "Matule",
-            style = localTypography.current.Caption2_Reg,
+            stringResource(com.example.uikit.R.string.app),
+            style = Typography().Caption2_Reg,
             fontSize = 40.sp,
             color = White
         )

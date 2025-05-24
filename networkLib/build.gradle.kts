@@ -49,6 +49,7 @@ dependencies {
     implementation("io.ktor:ktor-client-android:2.3.7") // Android-специфичный движок
     implementation("io.ktor:ktor-client-content-negotiation:2.3.7") // Для JSON
     implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.7") // Сериализация
+    implementation("io.ktor:ktor-client-logging:2.3.7")
 
     // Kotlin
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")

@@ -25,6 +25,7 @@ import com.example.uikit.UI.Description
 import com.example.uikit.UI.Input_Backgroud
 import com.example.uikit.UI.Input_Strok
 import com.example.uikit.UI.PlaceHolder
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.localTypography
 
 @Composable
@@ -39,7 +40,7 @@ fun BigSearch(onSearch:(String)->Unit){
             searchText = it
             onSearch(it)
         },
-        placeholder = { Text("Искать описание", style = localTypography.current.Headline_Reg, color = PlaceHolder) },
+        placeholder = { Text("Искать описание", style = Typography().Headline_Reg, color = PlaceHolder) },
         trailingIcon = {
             Icon(
                 painter = painterResource(R.drawable.close),
@@ -73,7 +74,7 @@ fun BigSearch(onSearch:(String)->Unit){
             .border(1.dp, Input_Strok, RoundedCornerShape(10.dp))
             .fillMaxWidth()
             .height(50.dp),
-        textStyle = localTypography.current.Headline_Reg
+        textStyle = Typography().Headline_Reg
     )
 }
 

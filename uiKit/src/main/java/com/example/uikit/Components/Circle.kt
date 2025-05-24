@@ -13,6 +13,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.uikit.UI.Input_Backgroud
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.localTypography
 
 @Composable
@@ -31,7 +32,7 @@ fun Circle(i: Int,modifier: Modifier=Modifier,onClick:()->Unit) {
 
         Text(
             i.toString(),
-            style = localTypography.current.Title1_SemiBold
+            style = Typography().Title1_SemiBold
         )
     }
 }

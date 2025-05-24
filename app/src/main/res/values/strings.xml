@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Matule2025</string>
+    <string name="hello">Добро пожаловать</string>
+    <string name="order">Мои заказы</string>
+    <string name="yvedom">Уведомления</string>
+
 </resources>

@@ -3,9 +3,10 @@ package com.example.networklib.data.remote
 import android.util.Log
 import com.example.networklib.data.models.AuthRequest
 import com.example.networklib.data.models.AuthResponse
-import com.example.networklib.data.models.CategoryResponse
-import com.example.networklib.data.models.NetworkResult
+import com.example.matule2025.Data.models.CategoryResponse
 import com.example.networklib.data.models.ProductResponse
+import com.example.networklib.data.models.ProfileRequest
+import com.example.networklib.data.models.ProfileResponse
 import com.example.networklib.data.models.RegistationResponse
 import com.example.networklib.data.models.RegistrationRequest
 import io.ktor.client.HttpClient
@@ -65,7 +66,7 @@ class ApiServiceImpl(private val URl: String, private val client: HttpClient) : 
         }
     }
 
-    override suspend fun getcategory(): CategoryResponse {
+    override suspend fun getcategory(): com.example.matule2025.Data.models.CategoryResponse {
         val response = client.get{
             url("$URl/api/collections/categories/records")
 
@@ -84,6 +85,22 @@ class ApiServiceImpl(private val URl: String, private val client: HttpClient) : 
     override suspend fun getProduct(): ProductResponse {
         val result = client.get {
             url("$URl/api/collections/product/records")
+        }
+
+        if (result.status.value==400){
+            throw ErrorM(result.bodyAsText())
+        }
+
+        return try {
+            result.body()
+        }catch (e:Exception){
+            throw Parse(e.message.toString())
+        }
+    }
+
+    override suspend fun getProfile(request: ProfileRequest): ProfileResponse {
+        val result = client.get {
+            url("$URl/api/collections/users/records/${request.id}")
         }
 
         if (result.status.value==400){

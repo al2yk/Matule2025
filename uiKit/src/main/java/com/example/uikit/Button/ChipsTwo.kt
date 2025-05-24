@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import com.example.uikit.UI.Input_Backgroud
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.localTypography
 
 @Composable
@@ -30,6 +31,6 @@ fun ChipsTwo(sm:Int,Title: String, click: Boolean, onClick: (Boolean) -> Unit) {
             },
         contentAlignment = Alignment.Center
     ) {
-        Text(Title, style = localTypography.current.Text_Med,)
+        Text(Title, style = Typography().Text_Med,)
     }
 }

@@ -33,6 +33,7 @@ import com.example.uikit.Components.SpacerWi
 import com.example.uikit.Input.OTPBox
 import com.example.uikit.UI.Accent
 import com.example.uikit.UI.PlaceHolder
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.White
 import com.example.uikit.UI.localTypography
 import kotlinx.coroutines.delay
@@ -56,7 +57,7 @@ fun TgAuth(controller: NavHostController) {
             SpacerHeight(132)
             Text(
                 "Введите код из Telegram",
-                style = localTypography.current.Title3_Semi,
+                style = Typography().Title3_Semi,
                 modifier = Modifier.align(Alignment.CenterHorizontally)
             )
             SpacerHeight(24)
@@ -105,7 +106,7 @@ fun SimpleCountdownTimer(
             }
             append(" секунд")
         },
-        style = localTypography.current.Text_Reg,
+        style = Typography().Text_Reg,
         textAlign = TextAlign.Center,
         color = PlaceHolder,
         modifier = modifier.padding(horizontal = 60.dp)

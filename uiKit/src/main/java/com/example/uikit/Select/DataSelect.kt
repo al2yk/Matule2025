@@ -29,11 +29,13 @@ import com.example.uikit.UI.Description
 import com.example.uikit.UI.Input_Backgroud
 import com.example.uikit.UI.Input_Strok
 import com.example.uikit.UI.PlaceHolder
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.localTypography
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
+/*
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -106,6 +108,7 @@ fun DateSelection() {
     }
 
 }
+*/
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -118,7 +121,7 @@ fun Date(value:String,onchange:(String)->Unit) {
             shape = RoundedCornerShape(10.dp),
             value = value,
             onValueChange = { },
-            placeholder = { Text("Дата рождения", style = localTypography.current.Text_Reg, color = PlaceHolder) },
+            placeholder = { Text("Дата рождения", style = Typography().Text_Reg, color = PlaceHolder) },
             trailingIcon = {
                 Icon(
                     painter = painterResource(R.drawable.down),
@@ -143,7 +146,7 @@ fun Date(value:String,onchange:(String)->Unit) {
                 .border(1.dp, Input_Strok, RoundedCornerShape(10.dp))
                 .fillMaxWidth()
                 .height(50.dp),
-            textStyle = localTypography.current.Text_Reg
+            textStyle = Typography().Text_Reg
         )
 
         if (openDialog) {

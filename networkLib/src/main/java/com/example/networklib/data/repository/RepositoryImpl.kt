@@ -3,15 +3,16 @@ package com.example.networklib.data.repository
 import com.example.networklib.data.models.ApiError
 import com.example.networklib.data.models.AuthRequest
 import com.example.networklib.data.models.AuthResponse
-import com.example.networklib.data.models.CategoryResponse
+import com.example.matule2025.Data.models.CategoryResponse
 import com.example.networklib.data.models.NetworkResult
 import com.example.networklib.data.models.ProductResponse
+import com.example.networklib.data.models.ProfileRequest
+import com.example.networklib.data.models.ProfileResponse
 import com.example.networklib.data.models.RegistationResponse
 import com.example.networklib.data.models.RegistrationRequest
 import com.example.networklib.data.network.NetworkMonitor
 import com.example.networklib.data.remote.ApiCall
 import com.example.networklib.data.remote.ApiService
-import com.example.networklib.data.remote.UserIsNotFound
 import com.example.networklib.domain.repository.Repository
 
 class RepositoryImpl(
@@ -40,7 +41,7 @@ class RepositoryImpl(
         }
     }
 
-    override suspend fun getCategory(): NetworkResult<CategoryResponse> {
+    override suspend fun getCategory(): NetworkResult<com.example.matule2025.Data.models.CategoryResponse> {
 
         return try {
           ApiCall(networkMonitor){
@@ -58,6 +59,16 @@ class RepositoryImpl(
             }
         }catch (e:Exception){
              NetworkResult.Error(ApiError(4,e.message.toString()))
+        }
+    }
+
+    override suspend fun getProfile(request: ProfileRequest): NetworkResult<ProfileResponse> {
+        return try {
+            ApiCall(networkMonitor){
+                apiService.getProfile(request)
+            }
+        }catch (e:Exception){
+            NetworkResult.Error(ApiError(5,e.message.toString()))
         }
     }
 

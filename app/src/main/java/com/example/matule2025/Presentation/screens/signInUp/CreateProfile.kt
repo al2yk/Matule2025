@@ -21,6 +21,7 @@ import com.example.uikit.Components.SpacerHeight
 import com.example.uikit.Select.Date
 import com.example.uikit.Select.GenderDropdownMenu
 import com.example.uikit.UI.PlaceHolder
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.White
 import com.example.uikit.UI.localTypography
 import org.koin.androidx.compose.koinViewModel
@@ -50,19 +51,19 @@ fun CreateProfile(controller: NavHostController,viewModel:AuthViewModel) {
 
             Text(
                 "Создание Профиля",
-                style = localTypography.current.Caption2_Bold,
+                style = Typography().Caption2_Bold,
                 fontSize = 24.sp
             )
             SpacerHeight(44)
             Text(
                 "Без профиля вы не сможете создавать проекты",
-                style = localTypography.current.Caption_Reg, color = PlaceHolder
+                style = Typography().Caption_Reg, color = PlaceHolder
             )
             SpacerHeight(8)
 
             Text(
                 "В профиле будут храниться результаты проектов и ваши описания.",
-                style = localTypography.current.Caption_Reg, color =  PlaceHolder
+                style = Typography().Caption_Reg, color =  PlaceHolder
             )
             SpacerHeight(32)
 

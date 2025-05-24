@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import com.example.uikit.Components.SpacerWi
 import com.example.uikit.UI.Black
 import com.example.uikit.UI.Input_Strok
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.White
 import com.example.uikit.UI.localTypography
 
@@ -49,7 +50,7 @@ fun LogInButton(Title: String, Img: Int, onClick: () -> Unit) {
             SpacerWi(10)
             Text(
                 Title,
-                style = localTypography.current.Title3_Semi,
+                style = Typography().Title3_Semi,
                 color = Black,
                 modifier = Modifier.align(Alignment.CenterVertically)
             )

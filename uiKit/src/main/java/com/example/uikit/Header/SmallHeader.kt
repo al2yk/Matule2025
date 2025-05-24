@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import com.example.uikit.Bubble.BoxBack
 import com.example.uikit.R
 import com.example.uikit.UI.Input_Icon
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.localTypography
 
 @Composable
@@ -23,7 +24,7 @@ fun SmallHeader() {
         BoxBack {}
 
         Text(
-            "Корзина", style = localTypography.current.Title2_SemiBold,
+            "Корзина", style = Typography().Title2_SemiBold,
             modifier = Modifier
                 .align(Alignment.Center)
         )

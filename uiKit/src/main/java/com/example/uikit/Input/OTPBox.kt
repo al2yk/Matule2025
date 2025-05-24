@@ -19,6 +19,7 @@ import com.example.uikit.UI.Accent
 import com.example.uikit.UI.Black
 import com.example.uikit.UI.Input_Backgroud
 import com.example.uikit.UI.Input_Strok
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.localTypography
 
 @Composable
@@ -56,7 +57,7 @@ fun OTPBox(
             .clickable {
                 isWriting = true
             },
-        textStyle = localTypography.current.Title2_Regular.copy(
+        textStyle = Typography().Title2_Regular.copy(
             textAlign = TextAlign.Center
         ),
     )

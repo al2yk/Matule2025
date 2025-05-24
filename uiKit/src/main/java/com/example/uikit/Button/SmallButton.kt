@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.uikit.UI.Accent
 import com.example.uikit.UI.Accent_inactive
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.White
 import com.example.uikit.UI.localTypography
 
@@ -51,7 +52,7 @@ fun SmallButton(click: Boolean, enabled: Boolean, onClick: (Boolean) -> Unit) {
             },
         contentAlignment = Alignment.Center
     ) {
-        Text(textBox, style = localTypography.current.Caption_Semi, color = textColor)
+        Text(textBox, style = Typography().Caption_Semi, color = textColor)
     }
 }
 

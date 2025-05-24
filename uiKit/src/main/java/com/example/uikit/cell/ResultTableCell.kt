@@ -23,6 +23,7 @@ import com.example.uikit.UI.Error
 import com.example.uikit.UI.Input_Icon
 import com.example.uikit.UI.Input_Strok
 import com.example.uikit.UI.Success
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.localTypography
 
 
@@ -34,11 +35,11 @@ fun ResultTableCell(title:String,result: Double, isNormal:Boolean){
 
         Box(modifier = Modifier.fillMaxWidth()) {
 
-            Text(title, style = localTypography.current.Caption2_Reg)
+            Text(title, style = Typography().Caption2_Reg)
 
-            Text(result.toString(), style = localTypography.current.Caption2_Reg, modifier = Modifier.padding(start = 126.dp),color=color)
+            Text(result.toString(), style = Typography().Caption2_Reg, modifier = Modifier.padding(start = 126.dp),color=color)
 
-            Text("11.1-14.1", style = localTypography.current.Caption2_Reg, modifier = Modifier.padding(start = 250.dp))
+            Text("11.1-14.1", style = Typography().Caption2_Reg, modifier = Modifier.padding(start = 250.dp))
 
             Icon(
                 painter = painterResource(R.drawable.right),

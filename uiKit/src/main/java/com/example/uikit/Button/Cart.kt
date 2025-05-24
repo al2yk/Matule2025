@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import com.example.uikit.R
 import com.example.uikit.UI.Accent
 import com.example.uikit.UI.Blue
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.White
 import com.example.uikit.UI.localTypography
 
@@ -44,13 +45,13 @@ fun Cart(Cost: String, onClick: () -> Unit) {
             )
             Text(
                 "В корзину",
-                style = localTypography.current.Title3_Semi,
+                style = Typography().Title3_Semi,
                 color = White,
                 modifier = Modifier.padding(start = 36.dp)
             )
             Text(
                 "$Cost ₽",
-                style = localTypography.current.Title3_Semi,
+                style = Typography().Title3_Semi,
                 color = White,
                 modifier = Modifier.align(
                     Alignment.CenterEnd

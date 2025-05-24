@@ -30,12 +30,13 @@ import com.example.uikit.Components.SpacerWi
 import com.example.uikit.Search.BigSearch
 import com.example.uikit.TabBar.BottomNavigationBar
 import com.example.uikit.UI.PlaceHolder
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.White
 import com.example.uikit.UI.localTypography
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun MainView(controller: NavHostController, viewModel: MainViewModel = koinViewModel()) {
+fun MainView(controller: NavHostController, viewModel: MainViewModel) {
 
     val state = viewModel.state
 
@@ -63,7 +64,7 @@ fun MainView(controller: NavHostController, viewModel: MainViewModel = koinViewM
                     SpacerHeight(32)
                     Text(
                         "Акции и новости",
-                        style = localTypography.current.Title3_Semi,
+                        style = Typography().Title3_Semi,
                         color = PlaceHolder
                     )
                     SpacerHeight(16)
@@ -89,7 +90,7 @@ fun MainView(controller: NavHostController, viewModel: MainViewModel = koinViewM
                     SpacerHeight(32)
                     Text(
                         "Каталог описаний",
-                        style = localTypography.current.Title3_Semi,
+                        style = Typography().Title3_Semi,
                         color = PlaceHolder
                     )
                     SpacerHeight(15)
@@ -116,9 +117,13 @@ fun MainView(controller: NavHostController, viewModel: MainViewModel = koinViewM
         ) {
             BottomNavigationBar(
                 onClick1 = {controller.navigate(NavigationRoutes.MAIN)},
-                onClick2 = {},
-                onClick3 = {},
-                onClick4 = {},
+                onClick2 = {controller.navigate(NavigationRoutes.CATEGORIES)},
+                onClick3 = {controller.navigate(NavigationRoutes.CATEGORIES)},
+                onClick4 = {controller.navigate(NavigationRoutes.PROFILE)},
+                selectedd = state.TabSelected,
+                onTabSelected = {
+                    viewModel.updateState(state.copy(TabSelected = it))
+                }
             )
         }
     }

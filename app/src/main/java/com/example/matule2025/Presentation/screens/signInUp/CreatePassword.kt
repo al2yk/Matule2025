@@ -24,6 +24,7 @@ import com.example.uikit.Button.BigButton
 import com.example.uikit.Components.SpacerHeight
 import com.example.uikit.Components.SpacerWi
 import com.example.uikit.Input.TextFieldAndTitle
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.White
 import com.example.uikit.UI.localTypography
 import org.koin.androidx.compose.koinViewModel
@@ -54,14 +55,14 @@ fun CreatePassword(controller: NavHostController,viewModel: CreatePasswordViewMo
                 SpacerWi(16)
                 Text(
                     "Cоздание пароля",
-                    style = localTypography.current.Caption2_Bold,
+                    style = Typography().Caption2_Bold,
                     fontSize = 24.sp
                 )
             }
             SpacerHeight(23)
             Text(
                 "Введите новый пароль",
-                style = localTypography.current.Text_Reg, modifier = Modifier.padding(end = 40.dp)
+                style = Typography().Text_Reg, modifier = Modifier.padding(end = 40.dp)
             )
             SpacerHeight(90)
 

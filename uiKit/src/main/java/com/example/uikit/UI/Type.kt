@@ -1,41 +1,170 @@
 package com.example.uikit.UI
 
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Typography
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.unit.sp
 import com.example.uikit.R
 
 
 data class Typo(
-    val Title1_SemiBold:TextStyle = TextStyle(),
-    val Title1_Heavy:TextStyle = TextStyle(),
-    val Title2_Regular:TextStyle = TextStyle(),
-    val Title2_SemiBold:TextStyle = TextStyle(),
-    val Title2_Heavy:TextStyle = TextStyle(),
-    val Title3_Reg:TextStyle = TextStyle(),
-    val Title3_Med:TextStyle = TextStyle(),
-    val Title3_Semi:TextStyle = TextStyle(),
-    val Headline_Reg:TextStyle = TextStyle(),
-    val Headline_Med:TextStyle = TextStyle(),
-    val Text_Reg:TextStyle = TextStyle(),
-    val Text_Med:TextStyle = TextStyle(),
-    val Caption_Reg:TextStyle = TextStyle(),
-    val Caption_Semi:TextStyle = TextStyle(),
-    val Caption2_Reg:TextStyle = TextStyle(),
-    val Caption2_Bold:TextStyle = TextStyle(),
+    val Title1_SemiBold: TextStyle = TextStyle(),
+    val Title1_Heavy: TextStyle = TextStyle(),
+    val Title2_Regular: TextStyle = TextStyle(),
+    val Title2_SemiBold: TextStyle = TextStyle(),
+    val Title2_Heavy: TextStyle = TextStyle(),
+    val Title3_Reg: TextStyle = TextStyle(),
+    val Title3_Med: TextStyle = TextStyle(),
+    val Title3_Semi: TextStyle = TextStyle(),
+    val Headline_Reg: TextStyle = TextStyle(),
+    val Headline_Med: TextStyle = TextStyle(),
+    val Text_Reg: TextStyle = TextStyle(),
+    val Text_Med: TextStyle = TextStyle(),
+    val Caption_Reg: TextStyle = TextStyle(),
+    val Caption_Semi: TextStyle = TextStyle(),
+    val Caption2_Reg: TextStyle = TextStyle(),
+    val Caption2_Bold: TextStyle = TextStyle(),
+)
+
+
+@Composable
+fun Typography(): Typo {
+    return Typo(
+        Title1_SemiBold = TextStyle(
+            fontSize = 24.sp,
+            fontFamily = FontFamily(Font(R.font.semibold)),
+            color = MaterialTheme.colorScheme.tertiary,
+            lineHeight = 28.sp
+        ),
+        Title2_SemiBold = TextStyle(
+            fontSize = 20.sp,
+            fontFamily = FontFamily(Font(R.font.semibold)),
+            color = MaterialTheme.colorScheme.tertiary,
+            lineHeight = 28.sp
+
+        ),
+        Title3_Semi = TextStyle(
+            fontSize = 17.sp,
+            fontFamily = FontFamily(Font(R.font.semibold)),
+            color = MaterialTheme.colorScheme.tertiary,
+            lineHeight = 24.sp
+
+        ),
+        Caption_Semi = TextStyle(
+            fontSize = 14.sp,
+            fontFamily = FontFamily(Font(R.font.semibold)),
+            color = MaterialTheme.colorScheme.tertiary,
+            lineHeight = 20.sp
+
+        ),
+
+
+        //HEAVY
+        Title1_Heavy = TextStyle(
+            fontSize = 24.sp,
+            fontFamily = FontFamily(Font(R.font.heavy)),
+            color = MaterialTheme.colorScheme.tertiary
+            ,lineHeight = 28.sp
+
+        ),
+        Title2_Heavy = TextStyle(
+            fontSize = 20.sp,
+            fontFamily = FontFamily(Font(R.font.heavy)),
+            color = MaterialTheme.colorScheme.tertiary
+            ,lineHeight = 28.sp
+
+        ),
+
+        //REGULAR
+        Title2_Regular = TextStyle(
+            fontSize = 20.sp,
+            fontFamily = FontFamily(Font(R.font.regular)),
+            color = MaterialTheme.colorScheme.tertiary
+            ,lineHeight = 28.sp
+
+        ),
+        Title3_Reg = TextStyle(
+            fontSize = 17.sp,
+            fontFamily = FontFamily(Font(R.font.regular)),
+            color = MaterialTheme.colorScheme.tertiary
+            ,lineHeight = 24.sp
+
+        ),
+        Headline_Reg = TextStyle(
+            fontSize = 16.sp,
+            fontFamily = FontFamily(Font(R.font.regular)),
+            color = MaterialTheme.colorScheme.tertiary
+            ,lineHeight = 20.sp
+
+        ),
+        Text_Reg = TextStyle(
+            fontSize = 15.sp,
+            fontFamily = FontFamily(Font(R.font.regular)),
+            color = MaterialTheme.colorScheme.tertiary
+            ,lineHeight = 20.sp
+
+        ),
+        Caption_Reg = TextStyle(
+            fontSize = 14.sp,
+            fontFamily = FontFamily(Font(R.font.regular)),
+            color = MaterialTheme.colorScheme.tertiary
+            ,lineHeight = 20.sp
+
+        ),
+        Caption2_Reg = TextStyle(
+            fontSize = 12.sp,
+            fontFamily = FontFamily(Font(R.font.regular)),
+            color = MaterialTheme.colorScheme.tertiary
+            ,lineHeight = 16.sp
+
+        ),
+
+
+        //MEDIUM
+        Title3_Med = TextStyle(
+            fontSize = 17.sp,
+            fontFamily = FontFamily(Font(R.font.medium)),
+            color = MaterialTheme.colorScheme.tertiary
+            ,lineHeight = 24.sp
+
+        ),
+        Headline_Med = TextStyle(
+            fontSize = 16.sp,
+            fontFamily = FontFamily(Font(R.font.medium)),
+            color = MaterialTheme.colorScheme.tertiary
+            ,lineHeight = 20.sp
+
+        ),
+        Text_Med = TextStyle(
+            fontSize = 15.sp,
+            fontFamily = FontFamily(Font(R.font.medium)),
+            color = MaterialTheme.colorScheme.tertiary
+            ,lineHeight = 20.sp
+
+        ),
+
+        //Bold
+        Caption2_Bold = TextStyle(
+            fontSize = 15.sp,
+            fontFamily = FontFamily(Font(R.font.bold)),
+            color = MaterialTheme.colorScheme.tertiary
+            ,lineHeight = 20.sp
+        )
     )
+}
 
-
-
+/*
 val Typography = Typo(
     //SEMI BOLD
     Title1_SemiBold = TextStyle(
         fontSize = 24.sp,
         fontFamily = FontFamily(Font(R.font.semibold)),
-        color = Black
+        color = MaterialTheme.colorScheme.tertiary
     ),
     Title2_SemiBold = TextStyle(
         fontSize = 20.sp,
@@ -52,8 +181,6 @@ val Typography = Typo(
         fontFamily = FontFamily(Font(R.font.semibold)),
         color = Black
     ),
-
-
 
 
     //HEAVY
@@ -100,7 +227,6 @@ val Typography = Typo(
     ),
 
 
-
     //MEDIUM
     Title3_Med = TextStyle(
         fontSize = 17.sp,
@@ -123,6 +249,7 @@ val Typography = Typo(
         fontSize = 15.sp,
         fontFamily = FontFamily(Font(R.font.bold)),
         color = Black
-    ),)
+    ),
+)*/
 
 val localTypography = staticCompositionLocalOf { Typography }

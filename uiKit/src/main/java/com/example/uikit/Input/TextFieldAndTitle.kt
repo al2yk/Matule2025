@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import com.example.uikit.Components.SpacerHeight
 import com.example.uikit.UI.Description
 import com.example.uikit.UI.PlaceHolder
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.localTypography
 
 @Composable
@@ -25,7 +26,7 @@ fun TextFieldAndTitle(
     Box(modifier = Modifier.fillMaxWidth().height(76.dp))
     {
         Text(
-            title, style = localTypography.current.Caption_Reg, color = Description
+            title, style = Typography().Caption_Reg, color = Description
         )
         Box(modifier = Modifier.align(Alignment.BottomStart)) {
             NameInputField_WithoutChangeBorder(value,plh,isPass) { onValChange(it) }

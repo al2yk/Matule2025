@@ -30,6 +30,7 @@ import com.example.uikit.UI.Description
 import com.example.uikit.UI.Input_Backgroud
 import com.example.uikit.UI.Input_Strok
 import com.example.uikit.UI.PlaceHolder
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.localTypography
 
 
@@ -51,7 +52,7 @@ fun GenderDropdownMenu(value:String,oncheck:(String)->Unit) {
             shape = RoundedCornerShape(10.dp),
             value = value,
             onValueChange = { },
-            placeholder = { Text("Пол", style = localTypography.current.Text_Reg, color = PlaceHolder) },
+            placeholder = { Text("Пол", style = Typography().Text_Reg, color = PlaceHolder) },
             trailingIcon = {
                 Icon(
                     painter = painterResource(R.drawable.down),
@@ -77,7 +78,7 @@ fun GenderDropdownMenu(value:String,oncheck:(String)->Unit) {
                 .menuAnchor()
                 .fillMaxWidth()
                 .height(50.dp),
-            textStyle = localTypography.current.Text_Reg
+            textStyle = Typography().Text_Reg
         )
 
 

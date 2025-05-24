@@ -16,6 +16,7 @@ import com.example.uikit.Bubble.BoxBack
 import com.example.uikit.Components.SpacerHeight
 import com.example.uikit.R
 import com.example.uikit.UI.Input_Icon
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.localTypography
 
 @Composable
@@ -28,7 +29,7 @@ fun BigHeader() {
             Box(modifier = Modifier
                 .fillMaxWidth()
                 .padding(end = 6.dp)) {
-                Text("Корзина", style = localTypography.current.Title1_Heavy)
+                Text("Корзина", style = Typography().Title1_Heavy)
                 Icon(
                     painter = painterResource(R.drawable.delete),
                     contentDescription = "",

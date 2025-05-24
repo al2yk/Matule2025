@@ -24,6 +24,7 @@ import com.example.uikit.UI.Description
 import com.example.uikit.UI.Input_Backgroud
 import com.example.uikit.UI.Input_Strok
 import com.example.uikit.UI.PlaceHolder
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.localTypography
 
 @Composable
@@ -39,7 +40,7 @@ fun MediumSearch(onSearch:(String)->Unit){
         placeholder = {
             Text(
                 "Искать описание",
-                style = localTypography.current.Headline_Reg,
+                style = Typography().Headline_Reg,
                 color = PlaceHolder
             )
         },
@@ -73,6 +74,6 @@ fun MediumSearch(onSearch:(String)->Unit){
         modifier = Modifier
             .border(1.dp, Input_Strok, RoundedCornerShape(10.dp))
             .height(50.dp),
-        textStyle = localTypography.current.Headline_Reg
+        textStyle = Typography().Headline_Reg
     )
 }

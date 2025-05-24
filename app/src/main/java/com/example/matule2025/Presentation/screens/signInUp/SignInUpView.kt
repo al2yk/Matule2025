@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -30,9 +31,11 @@ import com.example.uikit.Components.SpacerWi
 import com.example.uikit.Input.TextFieldAndTitle
 import com.example.uikit.UI.Accent
 import com.example.uikit.UI.PlaceHolder
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.White
 import com.example.uikit.UI.localTypography
 import org.koin.androidx.compose.koinViewModel
+import androidx.compose.ui.res.stringResource
 
 @Composable
 fun SignInUpView(controller: NavHostController,viewModel: AuthViewModel) {
@@ -48,7 +51,7 @@ fun SignInUpView(controller: NavHostController,viewModel: AuthViewModel) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(White)
+            .background(MaterialTheme.colorScheme.background)
 
     ) {
 
@@ -66,15 +69,16 @@ fun SignInUpView(controller: NavHostController,viewModel: AuthViewModel) {
                 )
                 SpacerWi(16)
                 Text(
-                    "Добро пожаловать!",
-                    style = localTypography.current.Caption2_Bold,
-                    fontSize = 24.sp
+                    stringResource(R.string.hello),
+                    style = Typography().Caption2_Bold,
+                    fontSize = 24.sp,
+                    letterSpacing = -0.9.sp
                 )
             }
             SpacerHeight(25)
             Text(
                 "Войдите, чтобы пользоваться функциями приложения",
-                style = localTypography.current.Text_Reg, modifier = Modifier.padding(end = 40.dp)
+                style = Typography().Text_Reg, modifier = Modifier.padding(end = 40.dp)
             )
             SpacerHeight(64)
             TextFieldAndTitle("Вход по E-mail","example@mail.com",false,state.email) {viewModel.updateState(state.copy(email = it)) }
@@ -84,14 +88,14 @@ fun SignInUpView(controller: NavHostController,viewModel: AuthViewModel) {
             SpacerHeight(15)
             Text(
                 "Забыл пароль?",
-                style = localTypography.current.Text_Reg, modifier = Modifier.align(Alignment.CenterHorizontally).clickable {
+                style = Typography().Text_Reg, modifier = Modifier.align(Alignment.CenterHorizontally).clickable {
                     controller.navigate(NavigationRoutes.CREATEPASSWORD)
                 }, color = Accent
             )
             SpacerHeight(59)
             Text(
                 "Или войдите с помощью",
-                style = localTypography.current.Text_Reg, modifier = Modifier.align(Alignment.CenterHorizontally), color = PlaceHolder
+                style = Typography().Text_Reg, modifier = Modifier.align(Alignment.CenterHorizontally), color = PlaceHolder
             )
             SpacerHeight(16)
 

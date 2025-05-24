@@ -34,6 +34,7 @@ import com.example.uikit.UI.Accent
 import com.example.uikit.UI.Black
 import com.example.uikit.UI.Description
 import com.example.uikit.UI.PlaceHolder
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.White
 import com.example.uikit.UI.localTypography
 
@@ -54,7 +55,7 @@ fun CreatePassword4(controller:NavHostController) {
 
             Text(
                 "Пропустить",
-                style = localTypography.current.Text_Reg, modifier = Modifier.align(Alignment.End).clickable {
+                style = Typography().Text_Reg, modifier = Modifier.align(Alignment.End).clickable {
                     controller.navigate(NavigationRoutes.CREATEPROFILE)
                 }, color = Accent
             )
@@ -62,13 +63,13 @@ fun CreatePassword4(controller:NavHostController) {
             SpacerHeight(40)
             Text(
                 "Cоздайте пароль",
-                style = localTypography.current.Caption2_Bold,
+                style = Typography().Caption2_Bold,
                 fontSize = 24.sp, modifier = Modifier.align(Alignment.CenterHorizontally)
             )
             SpacerHeight(16)
             Text(
                 "Для защиты ваших персональных данных",
-                style = localTypography.current.Text_Reg, modifier = Modifier.align(Alignment.CenterHorizontally), color = PlaceHolder
+                style = Typography().Text_Reg, modifier = Modifier.align(Alignment.CenterHorizontally), color = PlaceHolder
             )
             SpacerHeight(56)
 

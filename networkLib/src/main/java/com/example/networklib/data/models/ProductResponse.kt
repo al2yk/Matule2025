@@ -4,13 +4,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ProductResponse (
-    val items: List<Product>? = null
+    val items: List<com.example.matule2025.Data.models.Product>? = null
 
-)
-@Serializable
-data class Product(
-    val id:String,
-    val title:String,
-    val category:String,
-    val cost:String
 )

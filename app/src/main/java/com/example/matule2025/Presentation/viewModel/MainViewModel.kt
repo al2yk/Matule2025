@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.matule2025.Domain.Repository.UserRepository
 import com.example.matule2025.Presentation.state.MainState
 import com.example.networklib.data.models.NetworkResult
 import com.example.networklib.domain.usecase.UseCase
@@ -17,6 +18,7 @@ class MainViewModel(private val UseCase: UseCase) : ViewModel() {
     fun updateState(newstate: MainState) {
         _state.value = newstate
     }
+
 
     fun getCategories() {
 
@@ -74,6 +76,52 @@ class MainViewModel(private val UseCase: UseCase) : ViewModel() {
                 Log.i("Ошибка Продукты", e.message.toString())
             }
         }
+    }
+
+
+    fun getUser() {
+
+        viewModelScope.launch {
+            updateState(state.copy(isLoading = true, error = null))
+            try {
+                when (val result = UseCase.getProfile(UserRepository.UserID)) {
+                    is NetworkResult.Error -> {
+
+                        updateState(state.copy(isLoading = false, error = result.error.message))
+                        Log.d("Profile",result.error.message)
+                        Log.d("Profile1",result.error.toString())
+                    }
+
+                    is NetworkResult.Success -> {
+
+                        Log.d("Profile",result.data.toString())
+
+                        updateState(
+                            state.copy(
+                                name = result.data.name,
+                                numberPhone = result.data.phoneNum,
+                            )
+                        )
+                        updateState(state.copy(isLoading = false, error = null))
+
+                    }
+
+                    is NetworkResult.Loading -> {
+                        updateState(state.copy(isLoading = true, error = null))
+                    }
+
+                    is NetworkResult.NoInternet -> {}
+
+                }
+
+            } catch (e: Exception) {
+                updateState(state.copy(isLoading = false, error = e.message.toString()))
+            }
+        }
+    }
+
+    fun LogOut(){
+
     }
 }
 

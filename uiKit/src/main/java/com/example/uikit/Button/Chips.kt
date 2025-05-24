@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import com.example.uikit.UI.Accent
 import com.example.uikit.UI.Description
 import com.example.uikit.UI.Input_Backgroud
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.White
 import com.example.uikit.UI.localTypography
 
@@ -40,7 +41,7 @@ fun Chips(sm:Int,Title: String, click: Boolean, onClick: (Boolean) -> Unit) {
             },
         contentAlignment = Alignment.Center
     ) {
-        Text(Title, style = localTypography.current.Text_Med, color = textColor)
+        Text(Title, style = com.example.uikit.UI.Typography().Text_Med, color = textColor)
     }
 }
 

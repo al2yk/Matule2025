@@ -15,10 +15,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.uikit.Components.SpacerHeight
 import com.example.uikit.R
-import com.example.uikit.UI.Description
 import com.example.uikit.UI.Green
 import com.example.uikit.UI.PlaceHolder
-import com.example.uikit.UI.Success
+import com.example.uikit.UI.Typography
 import com.example.uikit.UI.localTypography
 
 @Composable
@@ -34,9 +33,9 @@ fun MenuButton(count:String){
         )
 
         Column(modifier = Modifier.padding(start = 52.dp)) {
-            Text("Результаты расчета", style = localTypography.current.Title3_Semi)
+            Text("Результаты расчета", style = Typography().Title3_Semi)
             SpacerHeight(8)
-            Text("${count} новый результат", style = localTypography.current.Caption_Reg, color = PlaceHolder)
+            Text("${count} новый результат", style = Typography().Caption_Reg, color = PlaceHolder)
 
         }
     }

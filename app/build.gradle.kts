@@ -85,4 +85,28 @@ dependencies {
     implementation("io.ktor:ktor-client-cio:2.3.7") //cio
 
 
+    //для виджета
+    implementation ("androidx.glance:glance-appwidget:1.0.0-alpha04")
+    implementation ("androidx.glance:glance-wear-tiles:1.0.0-alpha04")
+    //картинки
+    implementation("io.coil-kt:coil-compose:2.2.2")
+
+    implementation ("androidx.work:work-runtime-ktx:2.7.1")
+    implementation ("androidx.core:core-ktx:1.6.0")
+
+    implementation ("com.google.accompanist:accompanist-permissions:0.24.3-alpha")
+
+    val espressoVersion = "4.2.2"
+    androidTestImplementation ("androidx.test.espresso:espresso-core:$espressoVersion")
+    androidTestImplementation( "androidx.test.espresso:espresso-core:$espressoVersion")
+    androidTestImplementation( "androidx.test.espresso:espresso-contrib:$espressoVersion")
+    androidTestImplementation( "androidx.test.espresso:espresso-intents:$espressoVersion")
+    androidTestImplementation( "androidx.test.espresso:espresso-accessibility:$espressoVersion")
+    androidTestImplementation( "androidx.test.espresso:espresso-web:$espressoVersion")
+    androidTestImplementation( "androidx.test.espresso.idling:idling-concurrent:$espressoVersion")
+
+    testImplementation ("org.robolectric:robolectric:4.8")
+
+    
+
 }
