@@ -4,13 +4,13 @@ import com.example.matule2025.Presentation.viewModel.AuthViewModel
 import com.example.matule2025.Presentation.viewModel.CreatePasswordViewModel
 import com.example.matule2025.Presentation.viewModel.MainViewModel
 import com.example.matule2025.Presentation.viewModel.SplashViewModel
-import com.example.networklib.data.network.AndroidNetworkMonitor
-import com.example.networklib.data.network.NetworkMonitor
+import com.example.networklib.network.monitor.AndroidNetworkMonitor
+import com.example.networklib.network.monitor.NetworkMonitor
 import com.example.networklib.data.remote.ApiService
 import com.example.networklib.data.remote.ApiServiceImpl
-import com.example.networklib.data.repository.RepositoryImpl
+import com.example.matule2025.Data.repository.RepositoryImpl
 import com.example.networklib.domain.repository.Repository
-import com.example.networklib.domain.usecase.UseCase
+import com.example.matule2025.Domain.UseCase.UseCase
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.HttpTimeout
@@ -27,7 +27,7 @@ import org.koin.dsl.module
 
 val networkModule  = module {
 
-    single<NetworkMonitor> {AndroidNetworkMonitor(get())}
+    single<NetworkMonitor> { AndroidNetworkMonitor(get()) }
 
     single {
         HttpClient(CIO){

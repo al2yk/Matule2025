@@ -1,7 +1,7 @@
 package com.example.matule2025.Presentation.state
 
-import com.example.networklib.data.models.CategoryItem
-import com.example.matule2025.Data.models.Product
+import com.example.matule2025.Domain.models.CategoryItem
+import com.example.matule2025.Domain.models.Product
 
 data class MainState (
     val listCategory: List<CategoryItem> = emptyList(),

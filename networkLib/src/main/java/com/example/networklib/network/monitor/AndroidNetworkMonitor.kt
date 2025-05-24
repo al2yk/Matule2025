@@ -1,11 +1,11 @@
-package com.example.networklib.data.network
+package com.example.networklib.network.monitor
 
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 
 
-class AndroidNetworkMonitor(private val context: Context):NetworkMonitor {
+class AndroidNetworkMonitor(private val context: Context): NetworkMonitor {
     override fun isConnected(): Boolean {
        val con = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
        val net = con.activeNetwork ?:return false

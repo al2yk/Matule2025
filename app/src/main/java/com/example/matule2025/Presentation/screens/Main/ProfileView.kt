@@ -122,7 +122,7 @@ fun ProfileView(controller: NavHostController, viewModel: MainViewModel) {
             BottomNavigationBar(
                 onClick1 = { controller.navigate(NavigationRoutes.MAIN) },
                 onClick2 = { controller.navigate(NavigationRoutes.CATEGORIES) },
-                onClick3 = {},
+                onClick3 = {controller.navigate(NavigationRoutes.PROJECTS)},
                 onClick4 = { controller.navigate(NavigationRoutes.PROFILE) },
                 selectedd = state.TabSelected,
                 onTabSelected = {

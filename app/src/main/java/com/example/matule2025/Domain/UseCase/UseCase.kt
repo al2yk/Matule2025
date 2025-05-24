@@ -1,8 +1,8 @@
-package com.example.networklib.domain.usecase
+package com.example.matule2025.Domain.UseCase
 
+import com.example.networklib.data.models.CategoryResponse
 import com.example.networklib.data.models.AuthRequest
 import com.example.networklib.data.models.AuthResponse
-import com.example.matule2025.Data.models.CategoryResponse
 import com.example.networklib.data.models.NetworkResult
 import com.example.networklib.data.models.ProductResponse
 import com.example.networklib.data.models.ProfileRequest
@@ -43,7 +43,7 @@ class UseCase(private val Repository: Repository) {
     }
 
 
-    suspend fun GetCategories():NetworkResult<com.example.matule2025.Data.models.CategoryResponse>{
+    suspend fun GetCategories():NetworkResult<CategoryResponse>{
         return Repository.getCategory()
     }
 

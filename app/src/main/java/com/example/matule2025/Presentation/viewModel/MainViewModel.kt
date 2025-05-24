@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.matule2025.Domain.Repository.UserRepository
 import com.example.matule2025.Presentation.state.MainState
 import com.example.networklib.data.models.NetworkResult
-import com.example.networklib.domain.usecase.UseCase
+import com.example.matule2025.Domain.UseCase.UseCase
 import kotlinx.coroutines.launch
 
 class MainViewModel(private val UseCase: UseCase) : ViewModel() {

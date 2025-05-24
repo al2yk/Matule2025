@@ -15,7 +15,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.matule2025.Di.networkModule
 import com.example.matule2025.Domain.Repository.UserRepository
 import com.example.matule2025.Presentation.navigation.Navigation
-import com.example.networklib.data.network.AndroidNetworkMonitor
+import com.example.networklib.network.monitor.AndroidNetworkMonitor
 import com.example.uikit.UI.Matule2025UiKit
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -26,7 +26,7 @@ import org.koin.core.context.startKoin
 
 class MainActivity : ComponentActivity() {
 
-    private lateinit var networkState:AndroidNetworkMonitor
+    private lateinit var networkState: AndroidNetworkMonitor
     private val _isOnline = MutableStateFlow(false
     )
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")

@@ -1,16 +1,16 @@
-package com.example.networklib.data.repository
+package com.example.matule2025.Data.repository
 
+import com.example.networklib.data.models.CategoryResponse
 import com.example.networklib.data.models.ApiError
 import com.example.networklib.data.models.AuthRequest
 import com.example.networklib.data.models.AuthResponse
-import com.example.matule2025.Data.models.CategoryResponse
 import com.example.networklib.data.models.NetworkResult
 import com.example.networklib.data.models.ProductResponse
 import com.example.networklib.data.models.ProfileRequest
 import com.example.networklib.data.models.ProfileResponse
 import com.example.networklib.data.models.RegistationResponse
 import com.example.networklib.data.models.RegistrationRequest
-import com.example.networklib.data.network.NetworkMonitor
+import com.example.networklib.network.monitor.NetworkMonitor
 import com.example.networklib.data.remote.ApiCall
 import com.example.networklib.data.remote.ApiService
 import com.example.networklib.domain.repository.Repository
@@ -27,7 +27,12 @@ class RepositoryImpl(
             }
         }
         catch (e:Exception){
-            NetworkResult.Error(ApiError(1,e.message.toString()))
+            NetworkResult.Error(
+                ApiError(
+                    1,
+                    e.message.toString()
+                )
+            )
         }
     }
 
@@ -37,18 +42,28 @@ class RepositoryImpl(
                 apiService.registration(request)
             }
         }catch (e:Exception){
-            NetworkResult.Error(ApiError(2,e.message.toString()))
+            NetworkResult.Error(
+                ApiError(
+                    2,
+                    e.message.toString()
+                )
+            )
         }
     }
 
-    override suspend fun getCategory(): NetworkResult<com.example.matule2025.Data.models.CategoryResponse> {
+    override suspend fun getCategory(): NetworkResult<CategoryResponse> {
 
         return try {
           ApiCall(networkMonitor){
               apiService.getcategory()
           }
         }catch (e:Exception){
-            NetworkResult.Error(ApiError(3,e.message.toString()))
+            NetworkResult.Error(
+                ApiError(
+                    3,
+                    e.message.toString()
+                )
+            )
         }
     }
 
@@ -58,7 +73,12 @@ class RepositoryImpl(
                 apiService.getProduct()
             }
         }catch (e:Exception){
-             NetworkResult.Error(ApiError(4,e.message.toString()))
+             NetworkResult.Error(
+                 ApiError(
+                     4,
+                     e.message.toString()
+                 )
+             )
         }
     }
 
@@ -68,7 +88,12 @@ class RepositoryImpl(
                 apiService.getProfile(request)
             }
         }catch (e:Exception){
-            NetworkResult.Error(ApiError(5,e.message.toString()))
+            NetworkResult.Error(
+                ApiError(
+                    5,
+                    e.message.toString()
+                )
+            )
         }
     }
 

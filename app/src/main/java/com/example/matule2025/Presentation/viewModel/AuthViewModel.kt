@@ -10,7 +10,7 @@ import com.example.matule2025.Presentation.navigation.NavigationRoutes
 import com.example.matule2025.Domain.patterns.isEmailValid
 import com.example.matule2025.Presentation.state.AuthState
 import com.example.networklib.data.models.NetworkResult
-import com.example.networklib.domain.usecase.UseCase
+import com.example.matule2025.Domain.UseCase.UseCase
 import kotlinx.coroutines.launch
 
 class AuthViewModel(private val UseCase: UseCase):ViewModel() {

@@ -7,6 +7,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.matule2025.Presentation.screens.Main.CategoriesView
 import com.example.matule2025.Presentation.screens.Main.MainView
 import com.example.matule2025.Presentation.screens.Main.ProfileView
+import com.example.matule2025.Presentation.screens.Main.ProjectView
 import com.example.matule2025.Presentation.screens.noInternet.NoInternet
 import com.example.matule2025.Presentation.screens.signInUp.CreatePassword
 import com.example.matule2025.Presentation.screens.signInUp.CreatePassword4
@@ -56,6 +57,9 @@ fun Navigation(isOnline: Boolean) {
         }
         composable(NavigationRoutes.PROFILE) {
           ProfileView(controller,MainViewM)
+        }
+        composable(NavigationRoutes.PROJECTS) {
+            ProjectView(controller,MainViewM)
         }
     }}
     else{

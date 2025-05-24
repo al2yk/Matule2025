@@ -10,4 +10,5 @@ object NavigationRoutes {
     const val TG = "Tg"
     const val CATEGORIES = "categories"
     const val PROFILE = "profile"
+    const val PROJECTS = "projects"
 }

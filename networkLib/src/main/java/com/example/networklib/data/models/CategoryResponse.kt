@@ -1,6 +1,6 @@
-package com.example.matule2025.Data.models
+package com.example.networklib.data.models
 
-import com.example.networklib.data.models.CategoryItem
+import com.example.matule2025.Domain.models.CategoryItem
 import kotlinx.serialization.Serializable
 
 @Serializable
