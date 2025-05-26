@@ -1,4 +1,4 @@
-package com.example.matule2025.Domain.models
+package com.example.networklib.data.models
 
 import kotlinx.serialization.Serializable
 

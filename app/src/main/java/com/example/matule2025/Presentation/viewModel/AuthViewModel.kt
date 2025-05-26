@@ -71,8 +71,6 @@ class AuthViewModel(private val UseCase: UseCase):ViewModel() {
                 }
                 Log.d("Reg",state.error.toString())
 
-
-
             }catch (e:Exception){
                     Log.e("reg ViewModel",e.message.toString())
             }

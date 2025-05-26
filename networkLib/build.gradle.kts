@@ -43,7 +43,6 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation(project(":app"))
 
     // Ktor
     implementation("io.ktor:ktor-client-core:2.3.7") // Ядро Ktor

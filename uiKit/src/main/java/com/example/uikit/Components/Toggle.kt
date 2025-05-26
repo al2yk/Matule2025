@@ -16,6 +16,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.unit.dp
 import com.example.uikit.UI.Accent
 import com.example.uikit.UI.Input_Strok
@@ -39,16 +40,12 @@ fun ToggleSwitch(isChecked: Boolean, onCheckedChange: (Boolean) -> Unit) {
                 .align(Alignment.CenterStart)
                 .offset(x = if (isChecked) 29.dp else 3.dp)
                 .clip(CircleShape)
+                .shadow(
+                    elevation = 5.dp,
+                    shape = CircleShape,
+                    clip = false // Это позволяет тени выходить за пределы родительского контейнера
+                )
                 .background(White)
         )
-    }
-}
-
-@Composable
-fun ToggleSwitchExample() {
-    var isChecked by remember { mutableStateOf(false) }
-
-    Column{
-        ToggleSwitch(isChecked = isChecked, onCheckedChange = { isChecked = it })
     }
 }

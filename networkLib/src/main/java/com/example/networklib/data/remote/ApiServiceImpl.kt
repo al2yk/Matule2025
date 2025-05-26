@@ -3,7 +3,7 @@ package com.example.networklib.data.remote
 import android.util.Log
 import com.example.networklib.data.models.AuthRequest
 import com.example.networklib.data.models.AuthResponse
-import com.example.matule2025.Data.models.CategoryResponse
+import com.example.networklib.data.models.CategoryResponse
 import com.example.networklib.data.models.ProductResponse
 import com.example.networklib.data.models.ProfileRequest
 import com.example.networklib.data.models.ProfileResponse
@@ -66,7 +66,7 @@ class ApiServiceImpl(private val URl: String, private val client: HttpClient) : 
         }
     }
 
-    override suspend fun getcategory(): com.example.matule2025.Data.models.CategoryResponse {
+    override suspend fun getcategory(): CategoryResponse {
         val response = client.get{
             url("$URl/api/collections/categories/records")
 

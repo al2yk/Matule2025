@@ -38,7 +38,6 @@ import com.example.uikit.UI.localTypography
 fun GenderDropdownMenu(value:String,oncheck:(String)->Unit) {
     val genderOptions = listOf("Мужской", "Женский", "Другое")
     var open by remember { mutableStateOf(false) }
-    /*var selectedGender by remember { mutableStateOf<String?>(null) }*/
 
 
     ExposedDropdownMenuBox(
